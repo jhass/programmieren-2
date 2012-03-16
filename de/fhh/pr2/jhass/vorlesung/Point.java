@@ -1,4 +1,4 @@
-package de.fhh.pr2.vorlesung;
+package de.fhh.pr2.jhass.vorlesung;
 public class Point {
     private int x;
     private int y;

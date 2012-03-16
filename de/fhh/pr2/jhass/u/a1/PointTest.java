@@ -1,4 +1,4 @@
-package de.fhh.pr2.u.a1;
+package de.fhh.pr2.jhass.u.a1;
 
 public class PointTest {
     public static void main(String[] args) {
