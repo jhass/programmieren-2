@@ -18,7 +18,6 @@ public class ShoppingCartTest {
 
         dogfood.setQuantity(6);
 
-        //System.out.printf("You gonna pay %.2f VD.\n", cart.getTotalCost());
         System.out.println(cart);
 
     }
