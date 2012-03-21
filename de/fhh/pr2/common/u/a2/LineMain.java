@@ -2,7 +2,7 @@ package de.fhh.pr2.common.u.a2;
 
 import java.awt.Graphics;
 
-import de.fhh.pr2.jhass.u.a1.Point;
+import de.fhh.pr2.common.u.a1.Point;
 import de.fhh.pr2.common.DrawingPanel;
 
 public class LineMain {
@@ -15,17 +15,17 @@ public class LineMain {
 		
 		
 		// Aufgabe 3
-		//enablePanel(200, 200);
-		//drawLines();
+//		enablePanel(200, 200);
+//		drawLines();
 		
 		// Aufgabe 4 Beispiel 1/2
-		//enablePanel(200, 200);
-		//drawDashedLine();
-		//drawSecondDashedLine();
+		enablePanel(200, 200);
+		drawDashedLine();
+		drawSecondDashedLine();
 		
 		// Aufgabe 4 Beispiel 3
-		enablePanel(100, 100);
-		drawSun();
+//		enablePanel(100, 100);
+//		drawSun();
 	}
 	
 	public static void printLine() {

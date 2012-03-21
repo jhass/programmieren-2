@@ -2,7 +2,7 @@ package de.fhh.pr2.common.u.a2;
 
 import java.awt.Graphics;
 
-import de.fhh.pr2.jhass.u.a1.Point;
+import de.fhh.pr2.common.u.a1.Point;
 
 public class Line {
 	private Point p1;
@@ -21,11 +21,11 @@ public class Line {
 		return new Point(this.p2);
 	}
 	
-	public void setP1(Point p) {
+	protected void setP1(Point p) {
 		this.p1 = new Point(p);
 	}
 	
-	public void setP2(Point p) {
+	protected void setP2(Point p) {
 		this.p2 = new Point(p);
 	}
 	
@@ -34,6 +34,7 @@ public class Line {
 	}
 	
 	public void draw(Graphics pen) {
+		System.out.println(this);
 		pen.drawLine(this.p1.getX(), this.p1.getY(),
 				     this.p2.getX(), this.p2.getY());
 	}
