@@ -16,7 +16,7 @@ public class BallspielMain {
         Handball h = new Handball();
         System.out.println("Handball: ");
         printBasisDaten(h);
-        System.out.println("  Sonderregel : " + h.getSonderregel());
+        System.out.println("  Sonderregel : " + h.sonderregel());
         
         Jonglieren j = new Jonglieren();
         System.out.println("Jonglieren: ");

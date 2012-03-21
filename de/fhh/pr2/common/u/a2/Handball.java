@@ -6,7 +6,7 @@ public class Handball extends Ballspiel {
 		return 60;
 	}
 	
-	public String getSonderregel() {
+	public String sonderregel() {
 		return "Zeitstrafe bei schwerem Regelverstoß";
 	}
 }
