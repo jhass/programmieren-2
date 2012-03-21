@@ -4,7 +4,7 @@ public class Point {
 	private int x;
 	private int y;
 	
-	public Point(int initialX, int initialY){
+	public Point(int initialX, int initialY) {
 		x = initialX;
 		y = initialY;
 	}
@@ -26,7 +26,7 @@ public class Point {
 		x= newx;
 		y= newy;
 	}
-	public void translate(int dx, int dy){
+	public void translate(int dx, int dy) {
 		setLocation(x + dx, y + dy);
 	}
 	
@@ -45,7 +45,7 @@ public class Point {
 		return "(" + x + ", " + y + ")";
 	}
 	
-	public int manhattanDistance(Point other){
-		return (Math.abs(y-other.y))+(Math.abs(x-other.x));
+	public int manhattanDistance(Point other) {
+		return (Math.abs(y-other.y)) + (Math.abs(x-other.x));
 	}
 }
