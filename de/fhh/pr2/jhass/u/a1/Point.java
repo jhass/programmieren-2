@@ -31,6 +31,16 @@ public class Point {
         this.setLocation(x, y);
     }
     
+    /*
+     * Create a new point initialized to the coordiantes given by the Point
+     * 
+     * @param p a Point
+     * @throws IlleagalArgumentException
+     */
+    public Point(Point p) {
+    	this.setLocation(p.getX(), p.getY());
+    }
+    
     /**
      * Get the current value of the x coordinate
      * 
