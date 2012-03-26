@@ -34,7 +34,6 @@ public class Line {
 	}
 	
 	public void draw(Graphics pen) {
-		System.out.println(this);
 		pen.drawLine(this.p1.getX(), this.p1.getY(),
 				     this.p2.getX(), this.p2.getY());
 	}

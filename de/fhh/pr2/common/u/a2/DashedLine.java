@@ -2,7 +2,7 @@ package de.fhh.pr2.common.u.a2;
 
 import java.awt.Graphics;
 
-import de.fhh.pr2.jhass.u.a1.Point;
+import de.fhh.pr2.common.u.a1.Point;
 
 public class DashedLine extends Line {
 	private int[] dashes;
@@ -43,7 +43,8 @@ public class DashedLine extends Line {
 				
 				if (currentLength > totalLength) {
 					if (draw) {
-						line.setP2(this.getP2());
+						line.setP2(new Point(Math.min(this.getP2().getX(), nextPoint.getX()), 
+											 Math.min(this.getP2().getY(), nextPoint.getY())));
 					} else {
 						break;
 					}

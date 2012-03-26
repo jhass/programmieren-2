@@ -19,9 +19,9 @@ public class LineMain {
 //		drawLines();
 		
 		// Aufgabe 4 Beispiel 1/2
-		enablePanel(200, 200);
-		drawDashedLine();
-		drawSecondDashedLine();
+//		enablePanel(200, 200);
+//		drawDashedLine();
+//		drawSecondDashedLine();
 		
 		// Aufgabe 4 Beispiel 3
 //		enablePanel(100, 100);
