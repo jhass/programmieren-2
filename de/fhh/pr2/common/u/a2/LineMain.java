@@ -15,8 +15,8 @@ public class LineMain {
 		
 		
 		// Aufgabe 3
-//		enablePanel(200, 200);
-//		drawLines();
+		enablePanel(200, 200);
+		drawLines();
 		
 		// Aufgabe 4 Beispiel 1/2
 //		enablePanel(200, 200);
@@ -42,7 +42,7 @@ public class LineMain {
 		Line currentLine;
 		for (int xy=1; xy<400; xy += 20) {
 			currentLine = new Line(new Point(xy, 0), new Point(0, xy));
-			currentLine.draw(pen);
+			currentLine.draw(pen, 4);
 		}
 	}
 	

@@ -10,8 +10,8 @@ package de.fhh.pr2.common.u.a1;
  *
  */
 public class Point {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     
 
     /**
@@ -32,6 +32,10 @@ public class Point {
         this.setLocation(x, y);
     }
     
+    public Point(double x, double y) throws IllegalArgumentException {
+        this.setLocation(x, y);
+    }
+    
     /*
      * Create a new point initialized to the coordiantes given by the Point
      * 
@@ -47,7 +51,7 @@ public class Point {
      * 
      * @return The current value of the x coordinate.
      */
-    public int getX() {
+    public double getX() {
         return this.x;
     }
 
@@ -56,7 +60,7 @@ public class Point {
      * 
      * @return The current value of the y coordinate.
      */
-    public int getY() {
+    public double getY() {
         return this.y;
     }
     
@@ -68,10 +72,10 @@ public class Point {
      * @param x A  value greater or equal 0.
      * @throws IllegalArgumentException
      */
-    public void setX(int x) throws IllegalArgumentException {
-       if (x < 0) {
-           throw new IllegalArgumentException("x should be greater equal 0");
-       }
+    public void setX(double x) throws IllegalArgumentException {
+//       if (x < 0) {
+//           throw new IllegalArgumentException("x should be greater equal 0");
+//       }
        this.x = x;
     }
     
@@ -83,10 +87,10 @@ public class Point {
      * @param y A  value greater or equal 0.
      * @throws IllegalArgumentException
      */
-    public void setY(int y) throws IllegalArgumentException {
-       if (x < 0) {
-           throw new IllegalArgumentException("y should be greater equal 0");
-       }
+    public void setY(double y) throws IllegalArgumentException {
+//       if (x < 0) {
+//           throw new IllegalArgumentException("y should be greater equal 0");
+//       }
         this.y = y;
     }
     
@@ -100,12 +104,30 @@ public class Point {
      * @param y
      * @throws IllegalArgumentException
      */
-    public void setLocation(int x, int y) throws IllegalArgumentException {
+    public void setLocation(double x, double y) throws IllegalArgumentException {
         this.setX(x);
         this.setY(y);
     }
     
+   /**
+     * Add another point
+     * 
+     * @param Point p
+     */
+    public void add(Point p) {
+    	this.setX(this.getX()+p.getX());
+    	this.setY(this.getY()+p.getY());
+    }
     
+    /**
+     * Subtract another point
+     * 
+     * @param Point p
+     */
+    public void sub(Point p) {
+    	this.setX(this.getX()-p.getX());
+    	this.setY(this.getY()-p.getY());
+    }
     
     /**
      * Moves the point with the given parameters.
@@ -152,8 +174,16 @@ public class Point {
         return this.distance(new Point(0, 0));
     }
     
+    /* Assuming a vector, compute the length	
+     * 
+     * @return the length
+     */
+    public double length() {
+    	return Math.sqrt(Math.pow(this.getX(), 2)+Math.pow(this.getY(), 2));
+    }
     
     public String toString() {
         return "("+this.getX()+","+this.getY()+")";
     }
+    
 }

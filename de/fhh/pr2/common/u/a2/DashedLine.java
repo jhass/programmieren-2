@@ -24,8 +24,8 @@ public class DashedLine extends Line {
 	public void draw(Graphics pen) {
 		int currentLength = 0;
 		int totalLength = (int) this.length();
-		int dX = this.getP2().getX()-this.getP1().getX();
-		int dY = this.getP2().getY()-this.getP1().getY();
+		double dX = this.getP2().getX()-this.getP1().getX();
+		double dY = this.getP2().getY()-this.getP1().getY();
 		Point currentPoint = new Point(this.getP1());
 		Point nextPoint;
 		Line line = new Line(this.getP1(), this.getP2());
