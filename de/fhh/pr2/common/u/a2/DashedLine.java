@@ -1,4 +1,4 @@
-package de.fhh.pr2.common.u.a2;
+package de.fhh.pr2.common.u.a2; 
 
 import java.awt.Graphics;
 
@@ -33,10 +33,10 @@ public class DashedLine extends Line {
 		double dY = this.getP2().getY()-this.getP1().getY();
 		Point currentPoint = new Point(this.getP1());
 		Point nextPoint;
-		Line line = new Line(this.getP1(), this.getP2());
+		Line line = new Line(this.getP1(), this.getP2(), this.getThickness());
 		boolean draw = true;
 		
-		do {
+		while (currentLength < totalLength) {
 			for (int dashLength : this.getDashes()) {
 				nextPoint = new Point(currentPoint.getX()+dX*dashLength/totalLength,
 									  currentPoint.getY()+dY*dashLength/totalLength);
@@ -64,7 +64,7 @@ public class DashedLine extends Line {
 				
 				currentPoint = nextPoint;
 			}
-		} while (currentLength < totalLength);
+		}
 	}
 	
 	@Override

@@ -27,6 +27,10 @@ public class LineMain {
 		enablePanel(100, 100);
 		drawSun();
 		
+		// Aufgabe 6
+		enablePanel(200, 200);
+		drawBigFatLine();
+		
 	}
 	
 	public static void printLine() {
@@ -65,19 +69,26 @@ public class LineMain {
 		int[] dashes = { 15, 3 };
 		DashedLine dashedLine;
 		Point start = new Point(10, 10);
-		dashedLine = new DashedLine(start, new Point(90, 10), dashes, 2);
+		dashedLine = new DashedLine(start, new Point(90, 10), dashes);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(90, 37), dashes, 2);
+		dashedLine = new DashedLine(start, new Point(90, 37), dashes);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(90, 63), dashes, 2);
+		dashedLine = new DashedLine(start, new Point(90, 63), dashes);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(90, 90), dashes, 2);
+		dashedLine = new DashedLine(start, new Point(90, 90), dashes);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(63, 90), dashes, 2);
+		dashedLine = new DashedLine(start, new Point(63, 90), dashes);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(37, 90), dashes, 2);
+		dashedLine = new DashedLine(start, new Point(37, 90), dashes);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(10, 90), dashes, 2);
+		dashedLine = new DashedLine(start, new Point(10, 90), dashes);
+		dashedLine.draw(pen);
+	}
+	
+	public static void drawBigFatLine() {
+		int[] dashes = { 15, 25 };
+		DashedLine dashedLine = new DashedLine(new Point(10, 10),
+											   new Point(190, 10), dashes, 10);
 		dashedLine.draw(pen);
 	}
 }

@@ -13,7 +13,7 @@ public class Line {
 	public Line(Point p1, Point p2) {
 		this.setP1(p1);
 		this.setP2(p2);
-		this.setThickness(0);
+		this.setThickness(1);
 	}
 	
 	public Line(Point p1, Point p2, int thickness) {
@@ -28,6 +28,10 @@ public class Line {
 	
 	public Point getP2() {
 		return new Point(this.p2);
+	}
+	
+	public int getThickness() {
+		return this.thickness;
 	}
 	
 	protected void setP1(Point p) {
@@ -46,28 +50,34 @@ public class Line {
 		return this.p1.distance(this.p2);
 	}
 	
-//	public void draw(Graphics pen) {
-//		pen.drawLine((int) this.p1.getX(), (int) this.p1.getY(),
-//				     (int) this.p2.getX(), (int) this.p2.getY());
-//	}
-	
 	public void draw(Graphics pen) {
-		this.draw(pen, this.thickness);
+		if (this.thickness == 1) {
+			pen.drawLine((int) this.p1.getX(), (int) this.p1.getY(),
+					(int) this.p2.getX(), (int) this.p2.getY());
+		} else {
+			this.drawWithThickness(pen);
+		}
 	}
 	
 	public void draw(Graphics pen, int thickness) {
+		this.setThickness(thickness);
+		this.draw(pen);
+	}
+	
+	private void drawWithThickness(Graphics pen) {
 		// compute normal vector
 		Point direction = new Point(this.getP2().getX()-this.getP1().getX(),
 									this.getP2().getY()-this.getP1().getY());
 		Point normal = new Point(-direction.getY(), direction.getX());
 		double length = normal.length();
-		normal.setX((normal.getX()/length)+thickness);
-		normal.setY((normal.getY()/length)+thickness);
-		pen.fillOval((int) this.getP1().getX(), (int) this.getP1().getY(), 
+		normal.setX((normal.getX()/length)*(thickness/2.0));
+		normal.setY((normal.getY()/length)*(thickness/2.0));
+
+		pen.fillOval((int) this.getP1().getX()-thickness/2, (int) this.getP1().getY()-thickness/2, 
 					 thickness, thickness);
-		pen.fillOval((int) this.getP2().getX(), (int) this.getP2().getY(), 
+		pen.fillOval((int) this.getP2().getX()-thickness/2, (int) this.getP2().getY()-thickness/2, 
 				     thickness, thickness);
-		
+
 		Point a = new Point(this.getP1());
 		a.add(normal);
 		Point b = new Point(this.getP2());
@@ -76,10 +86,9 @@ public class Line {
 		c.sub(normal);
 		Point d = new Point(this.getP1());
 		d.sub(normal);
-		int[] xes = {(int) a.getX(), (int) b.getX(), (int) c.getX(), (int) d.getX()};
-		int[] yes = {(int) a.getY(), (int) b.getY(), (int) c.getY(), (int) d.getY()};
-		Polygon line = new Polygon(xes, yes, 4);
-		pen.fillPolygon(line);
+		int[] xes = {(int) Math.round(a.getX()), (int) Math.round(b.getX()), (int) Math.round(c.getX()), (int) Math.round(d.getX())};
+		int[] yes = {(int) Math.round(a.getY()), (int) Math.round(b.getY()), (int) Math.round(c.getY()), (int) Math.round(d.getY())};
+		pen.fillPolygon(xes, yes, 4);
 	}
 	
 	public String toString() {
