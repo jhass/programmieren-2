@@ -11,7 +11,12 @@ public class DashedLine extends Line {
 		super(p1, p2);
 		this.setDashes(dashes);
 	}
-
+	
+	public DashedLine(Point p1, Point p2, int[] dashes, int thickness) {
+		super(p1, p2, thickness);
+		this.setDashes(dashes);
+	}
+	
 	public int[] getDashes() {
 		return this.dashes;
 	}

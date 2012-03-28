@@ -8,10 +8,18 @@ import de.fhh.pr2.common.u.a1.Point;
 public class Line {
 	private Point p1;
 	private Point p2;
+	private int thickness;
 	
 	public Line(Point p1, Point p2) {
 		this.setP1(p1);
 		this.setP2(p2);
+		this.setThickness(0);
+	}
+	
+	public Line(Point p1, Point p2, int thickness) {
+		this.setP1(p1);
+		this.setP2(p2);
+		this.setThickness(thickness);
 	}
 	
 	public Point getP1() {
@@ -30,16 +38,24 @@ public class Line {
 		this.p2 = new Point(p);
 	}
 	
+	protected void setThickness(int thickness) {
+		this.thickness = thickness;
+	}
+	
 	public double length() {
 		return this.p1.distance(this.p2);
 	}
 	
-	public void draw(Graphics pen) {		
-		pen.drawLine((int) this.p1.getX(), (int) this.p1.getY(),
-				     (int) this.p2.getX(), (int) this.p2.getY());
+//	public void draw(Graphics pen) {
+//		pen.drawLine((int) this.p1.getX(), (int) this.p1.getY(),
+//				     (int) this.p2.getX(), (int) this.p2.getY());
+//	}
+	
+	public void draw(Graphics pen) {
+		this.draw(pen, this.thickness);
 	}
 	
-	public void draw(Graphics pen, double thickness) {
+	public void draw(Graphics pen, int thickness) {
 		// compute normal vector
 		Point direction = new Point(this.getP2().getX()-this.getP1().getX(),
 									this.getP2().getY()-this.getP1().getY());
@@ -48,9 +64,9 @@ public class Line {
 		normal.setX((normal.getX()/length)+thickness);
 		normal.setY((normal.getY()/length)+thickness);
 		pen.fillOval((int) this.getP1().getX(), (int) this.getP1().getY(), 
-					 (int) thickness, (int) thickness);
+					 thickness, thickness);
 		pen.fillOval((int) this.getP2().getX(), (int) this.getP2().getY(), 
-				 (int) thickness, (int) thickness);
+				     thickness, thickness);
 		
 		Point a = new Point(this.getP1());
 		a.add(normal);
@@ -67,6 +83,6 @@ public class Line {
 	}
 	
 	public String toString() {
-		return "["+this.p1+", "+this.p2+"]";
+		return "["+this.p1+", "+this.p2+", thickness="+this.thickness+"]";
 	}
 }

@@ -11,7 +11,7 @@ public class LineMain {
 	
 	public static void main(String[] args) {
 		// Aufgabe 2
-		//printLine();
+		printLine();
 		
 		
 		// Aufgabe 3
@@ -19,13 +19,14 @@ public class LineMain {
 		drawLines();
 		
 		// Aufgabe 4 Beispiel 1/2
-//		enablePanel(200, 200);
-//		drawDashedLine();
-//		drawSecondDashedLine();
+		enablePanel(200, 200);
+		drawDashedLine();
+		drawSecondDashedLine();
 		
 		// Aufgabe 4 Beispiel 3
-//		enablePanel(100, 100);
-//		drawSun();
+		enablePanel(100, 100);
+		drawSun();
+		
 	}
 	
 	public static void printLine() {
@@ -42,7 +43,7 @@ public class LineMain {
 		Line currentLine;
 		for (int xy=1; xy<400; xy += 20) {
 			currentLine = new Line(new Point(xy, 0), new Point(0, xy));
-			currentLine.draw(pen, 4);
+			currentLine.draw(pen);
 		}
 	}
 	
@@ -64,19 +65,19 @@ public class LineMain {
 		int[] dashes = { 15, 3 };
 		DashedLine dashedLine;
 		Point start = new Point(10, 10);
-		dashedLine = new DashedLine(start, new Point(90, 10), dashes);
+		dashedLine = new DashedLine(start, new Point(90, 10), dashes, 2);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(90, 37), dashes);
+		dashedLine = new DashedLine(start, new Point(90, 37), dashes, 2);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(90, 63), dashes);
+		dashedLine = new DashedLine(start, new Point(90, 63), dashes, 2);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(90, 90), dashes);
+		dashedLine = new DashedLine(start, new Point(90, 90), dashes, 2);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(63, 90), dashes);
+		dashedLine = new DashedLine(start, new Point(63, 90), dashes, 2);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(37, 90), dashes);
+		dashedLine = new DashedLine(start, new Point(37, 90), dashes, 2);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(start, new Point(10, 90), dashes);
+		dashedLine = new DashedLine(start, new Point(10, 90), dashes, 2);
 		dashedLine.draw(pen);
 	}
 }
