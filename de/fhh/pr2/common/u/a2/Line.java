@@ -1,7 +1,7 @@
 package de.fhh.pr2.common.u.a2;
 
 import java.awt.Graphics;
-import java.awt.Polygon;
+
 
 import de.fhh.pr2.common.u.a1.Point;
 
@@ -73,9 +73,9 @@ public class Line {
 		normal.setX((normal.getX()/length)*(thickness/2.0));
 		normal.setY((normal.getY()/length)*(thickness/2.0));
 
-		pen.fillOval((int) this.getP1().getX()-thickness/2, (int) this.getP1().getY()-thickness/2, 
+		pen.fillOval((int) Math.round(this.getP1().getX()-thickness/2), (int) Math.round(this.getP1().getY()-thickness/2), 
 					 thickness, thickness);
-		pen.fillOval((int) this.getP2().getX()-thickness/2, (int) this.getP2().getY()-thickness/2, 
+		pen.fillOval((int) Math.round(this.getP2().getX()-thickness/2), (int) Math.round(this.getP2().getY()-thickness/2), 
 				     thickness, thickness);
 
 		Point a = new Point(this.getP1());

@@ -174,7 +174,7 @@ public class Point {
         return this.distance(new Point(0, 0));
     }
     
-    /* Assuming a vector, compute the length	
+    /** Assuming a vector, compute the length	
      * 
      * @return the length
      */

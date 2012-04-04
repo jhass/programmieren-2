@@ -90,7 +90,7 @@ public class LineMain {
 		DashedLine dashedLine = new DashedLine(new Point(10, 10),
 											   new Point(190, 190), dashes, 10);
 		dashedLine.draw(pen);
-		dashedLine = new DashedLine(new Point(190, 10), new Point(10, 190),
+		dashedLine = new DashedLine(new Point(10, 190), new Point(190, 10),
 									dashes, 10);
 		dashedLine.draw(pen);
 	}
