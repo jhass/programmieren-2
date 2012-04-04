@@ -48,8 +48,8 @@ public class DashedLine extends Line {
 				
 				if (currentLength > totalLength) {
 					if (draw) {
-						line.setP2(new Point(Math.min(this.getP2().getX(), nextPoint.getX()), 
-											 Math.min(this.getP2().getY(), nextPoint.getY())));
+						line.setP2(this.getP2());//new Point(Math.min(this.getP2().getX(), nextPoint.getX()), 
+											 //Math.min(this.getP2().getY(), nextPoint.getY())));
 					} else {
 						break;
 					}

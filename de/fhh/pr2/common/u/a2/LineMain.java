@@ -53,8 +53,9 @@ public class LineMain {
 	
 	public static void drawDashedLine() {
 		int[] dashes = { 15, 25 };
-		DashedLine dashedLine = new DashedLine(new Point(10, 10),
-											   new Point(190, 10), dashes);
+		DashedLine dashedLine = new DashedLine(new Point(180, 10), 
+				new Point(10, 10),
+				   dashes);
 		dashedLine.draw(pen);
 	}
 	
