@@ -32,4 +32,7 @@ public class Zahlenkombi {
         return false;
     }
     
+    protected int[] getZahlenArray() {
+    	return zahlen;
+    }
 }
