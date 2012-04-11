@@ -1,0 +1,9 @@
+[X] a) Leiter können ihren Namen auslesen
+[ ] b) Leiter können ihre ID auslesen
+[ ] c) Büroangestellte können ihre ID auslesen
+[X] d) Büroangestellte können ihren Namen auslesen
+[ ] e) Büroangestellte können ihre Bewertung auslesen
+[ ] f) Büroangestellte können den Kredit von Kunden auslesen
+[X] g) Personen können den Namen anderer Personen auslesen
+[X] h) Personen können die ID anderer Personen auslesen
+[X] i) Leiter können den Kredit von Kunden auslesen
