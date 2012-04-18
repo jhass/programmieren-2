@@ -13,9 +13,7 @@ public class Magazine extends Medium {
 	}
 
 	public void setNumber(int number) {
-		if (number < 1) {
-			throw new IllegalArgumentException("duration must be greather than zero");
-		}
+		checkGreatherEqualThan(number, 1, "number");
 		
 		this.number = number;
 	}

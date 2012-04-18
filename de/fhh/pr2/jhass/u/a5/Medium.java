@@ -13,18 +13,16 @@ public abstract class Medium {
 		return title;
 	}
 	public void setTitle(String title) {
-		if (title == null || title.equals("")) {
-			throw new IllegalArgumentException("title must not be empty");
-		}
+		checkStringEmpty(title, "title");
+		
 		this.title = title;
 	}
 	public int getReleaseYear() {
 		return releaseYear;
 	}
 	public void setReleaseYear(int releaseYear) {
-		if (releaseYear < 0) {
-			throw new IllegalArgumentException("release year must be greather or equal zero");
-		}
+		checkGreatherEqualThan(releaseYear, 0, "release year");
+		
 		this.releaseYear = releaseYear;
 	}
 	
@@ -33,5 +31,17 @@ public abstract class Medium {
 	@Override
 	public String toString() {
 		return String.format("%s, %d", this.getTitle(), this.getReleaseYear());
+	}
+	
+	protected void checkStringEmpty(String string, String argName) {
+		if (string == null || string.length() == 0) {
+			throw new IllegalArgumentException(argName+" must not be empty");
+		}
+	}
+	
+	protected void checkGreatherEqualThan(double num, double gt, String argName) {
+		if (num < gt) {
+			throw new IllegalArgumentException(argName+" must be greather or equal "+gt);
+		}
 	}
 }

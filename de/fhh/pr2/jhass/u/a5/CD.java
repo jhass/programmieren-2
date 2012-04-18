@@ -15,9 +15,7 @@ public class CD extends Medium {
 	}
 
 	public void setArtist(String artist) {
-		if (artist == null || artist.equals("")) {
-			throw new IllegalArgumentException("artist must not be empty");
-		}
+		checkStringEmpty(artist, "artist");
 		
 		this.artist = artist;
 	}
@@ -29,9 +27,7 @@ public class CD extends Medium {
 
 
 	public void setDuration(int duration) {
-		if (duration < 1) {
-			throw new IllegalArgumentException("duration must be greather than zero");
-		}
+		checkGreatherEqualThan(duration, 1, "duration");
 		
 		this.duration = duration;
 	}

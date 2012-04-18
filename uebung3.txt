@@ -5,5 +5,5 @@
 [ ] e) Büroangestellte können ihre Bewertung auslesen
 [ ] f) Büroangestellte können den Kredit von Kunden auslesen
 [x] g) Personen können den Namen anderer Personen auslesen
-[ ] h) Personen können die ID anderer Personen auslesen
+[x] h) Personen können die ID anderer Personen auslesen
 [x] i) Leiter können den Kredit von Kunden auslesen

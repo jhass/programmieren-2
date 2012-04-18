@@ -15,9 +15,7 @@ public class Book extends Medium {
 	}
 	
 	public void setPublisher(String publisher) {
-		if (publisher == null || publisher.equals("")) {
-			throw new IllegalArgumentException("publisher must not be empty");
-		}
+		checkStringEmpty(publisher, "publisher");
 		
 		this.publisher = publisher;
 	}
@@ -27,9 +25,7 @@ public class Book extends Medium {
 	}
 	
 	public void setAuthor(String author) {
-		if (author == null || author.equals("")) {
-			throw new IllegalArgumentException("author must not be empty");
-		}
+		checkStringEmpty(author, "author");
 		
 		this.author = author;
 	}
