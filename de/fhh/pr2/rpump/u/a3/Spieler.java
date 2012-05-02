@@ -10,7 +10,7 @@ public class Spieler {
 	}
 	
 	public String toString(){
-		return name+"("+ryckennummer+")";
+		return name+" ("+ryckennummer+")";
 	}
 
 }

@@ -13,9 +13,9 @@ public class ZahlenKombisortiert extends Zahlenkombi {
 	}
 	
 	@Override
-	public boolean istEnthalten(int zahl){
+	public boolean istEnthalten(int zahl) {
 		long start = System.currentTimeMillis();
-		if(sortedArray == null){
+		if(sortedArray == null) {
 			sortedArray = this.getZahlenArray();
 			java.util.Arrays.sort(sortedArray);
 		}
@@ -25,9 +25,9 @@ public class ZahlenKombisortiert extends Zahlenkombi {
 		return (found>0);
 	}
 	
-	public double averageTime(){
+	public double averageTime() {
 		double sum = 0;
-		for(int i : aufrufZeiten){
+		for(int i : aufrufZeiten) {
 			sum += i;
 		}
 		return (sum/aufrufZeiten.size());

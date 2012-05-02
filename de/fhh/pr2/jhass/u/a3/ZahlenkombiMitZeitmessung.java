@@ -14,9 +14,11 @@ public class ZahlenkombiMitZeitmessung extends Zahlenkombi {
 	
 	@Override
 	public boolean istEnthalten(int i) {
+		
 		long start = System.currentTimeMillis();
 		boolean enthalten = super.istEnthalten(i);
 		this.neededTimes.add((int) (System.currentTimeMillis()-start));
+		
 		return enthalten;
 	}
 	
