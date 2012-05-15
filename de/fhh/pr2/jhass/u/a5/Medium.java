@@ -1,6 +1,6 @@
 package de.fhh.pr2.jhass.u.a5;
 
-public abstract class Medium {
+public abstract class Medium implements Comparable<Medium> {
 	private String title;
 	private int releaseYear;
 	
@@ -43,5 +43,10 @@ public abstract class Medium {
 		if (num < gt) {
 			throw new IllegalArgumentException(argName+" must be greather or equal "+gt);
 		}
+	}
+	
+	@Override
+	public int compareTo(Medium other) {
+		return this.getReleaseYear()-other.getReleaseYear();
 	}
 }
