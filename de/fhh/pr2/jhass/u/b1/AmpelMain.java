@@ -8,8 +8,8 @@ public class AmpelMain {
 	public static void main(String[] args) {
 		int[] phasesWO = {3, 1, 6, 1};
 		int[] phasesNS = {6, 1, 3, 1};
-		Ampel ampelWO = new Ampel("West-Ost", phasesWO, 2);
-		Ampel ampelNS = new Ampel("Nord-Süd", phasesNS, 0);
+		Ampel ampelWO = new Ampel("West-Ost", phasesWO, Ampel.Phase.RED);
+		Ampel ampelNS = new Ampel("Nord-Süd", phasesNS, Ampel.Phase.GREEN);
 		ampelWO.setOtherAmpel(ampelNS);
 		ampelNS.setOtherAmpel(ampelWO);
 		ampelWO.start();
