@@ -8,7 +8,7 @@ import de.fhh.pr2.common.DrawingPanel;
 
 public class Ampel extends Thread {
 	interface AmpelPhase {
-		public boolean notSwitchedToCompatiblePhase(Ampel ampel);
+		public boolean isNotSafeTo(Ampel ampel);
 		public void displayOn(Ampel ampel);
 		public Ampel.Phase next();
 	}
@@ -16,7 +16,7 @@ public class Ampel extends Thread {
 	public enum Phase implements AmpelPhase {
 		GREEN {
 			@Override
-			public boolean notSwitchedToCompatiblePhase(Ampel ampel) {
+			public boolean isNotSafeTo(Ampel ampel) {
 				return ampel.getCurrentPhase() != RED;
 			}
 			
@@ -33,7 +33,7 @@ public class Ampel extends Thread {
 		},
 		YELLOW {
 			@Override
-			public boolean notSwitchedToCompatiblePhase(Ampel ampel) {
+			public boolean isNotSafeTo(Ampel ampel) {
 				return ampel.getCurrentPhase() != RED_YELLOW;
 			}
 			
@@ -50,7 +50,7 @@ public class Ampel extends Thread {
 		}, 
 		RED {
 			@Override
-			public boolean notSwitchedToCompatiblePhase(Ampel ampel) {
+			public boolean isNotSafeTo(Ampel ampel) {
 				return ampel.getCurrentPhase() != GREEN;
 			}
 			
@@ -66,7 +66,7 @@ public class Ampel extends Thread {
 			}
 		}, RED_YELLOW {
 			@Override
-			public boolean notSwitchedToCompatiblePhase(Ampel ampel) {
+			public boolean isNotSafeTo(Ampel ampel) {
 				return ampel.getCurrentPhase() != YELLOW;
 			}
 			
@@ -138,7 +138,7 @@ public class Ampel extends Thread {
 		this.currentPhase = this.nextPhase;
 		this.notifyAll();
 		
-		while (this.currentPhase.notSwitchedToCompatiblePhase(this.otherAmpel)) {
+		while (this.currentPhase.isNotSafeTo(this.otherAmpel)) {
 			synchronized (this.otherAmpel) {
 				try {
 					this.otherAmpel.wait();
