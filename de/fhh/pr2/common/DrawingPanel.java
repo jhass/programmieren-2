@@ -635,6 +635,14 @@ public class DrawingPanel extends FileFilter
         }
     }
     
+    public Point getLocation() {
+    	return frame.getLocation();
+    }
+    
+    public void setLocation(int x, int y) {
+    	frame.setLocation(x, y);
+    }
+    
     // makes the program pause for the given amount of time,
     // allowing for animation
     public void sleep(int millis) {
@@ -1083,7 +1091,7 @@ public class DrawingPanel extends FileFilter
         
         return hack[0];
     }
-
+    
     
     
     // Reports the differences between two images.
