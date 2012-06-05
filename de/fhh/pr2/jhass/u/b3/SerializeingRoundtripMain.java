@@ -40,10 +40,7 @@ public class SerializeingRoundtripMain {
 			FileInputStream personData = new FileInputStream("persons.bin");
 			ObjectInputStream personSource = new ObjectInputStream(personData);
 			try {
-				Object rescued =  personSource.readObject();
-				if (rescued instanceof HashSet<?>) {
-					rescuedFriends = (HashSet<Person>) rescued;
-				}
+				rescuedFriends = safeObjectToPersonHashSet(personSource.readObject());
 			} catch (IOException e) {}
 			personSource.close();
 			for (Person rescued : rescuedFriends) {
@@ -89,5 +86,13 @@ public class SerializeingRoundtripMain {
 		} else {
 			return false;
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static HashSet<Person> safeObjectToPersonHashSet(Object o) {
+		if (o instanceof HashSet<?>) {
+			return (HashSet<Person>) o;
+		}
+		return null;
 	}
 }
