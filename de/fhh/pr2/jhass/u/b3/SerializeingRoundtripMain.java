@@ -33,26 +33,22 @@ public class SerializeingRoundtripMain {
 			FileOutputStream personDst = new FileOutputStream("persons.bin");
 			ObjectOutputStream personSink = new ObjectOutputStream(personDst);
 			
-			for (Person person : bestFriends) {
-				personSink.writeObject(person);
-			}
+			personSink.writeObject(bestFriends);
 			
 			personSink.close();
 			
 			FileInputStream personData = new FileInputStream("persons.bin");
 			ObjectInputStream personSource = new ObjectInputStream(personData);
-			Person rescued;
-			do {
-				try {
-					rescued = (Person) personSource.readObject();
-					rescuedFriends.add(rescued);
-					resetPerson(rescued);
-				} catch (IOException e) {
-					rescued = null;
+			try {
+				Object rescued =  personSource.readObject();
+				if (rescued instanceof HashSet<?>) {
+					rescuedFriends = (HashSet<Person>) rescued;
 				}
-			} while (rescued != null);
-			
+			} catch (IOException e) {}
 			personSource.close();
+			for (Person rescued : rescuedFriends) {
+				resetPerson(rescued);
+			}
 		} catch (IOException e) {
 			System.out.println("Serialization roundtrip failed! "+e);
 		} catch (ClassNotFoundException e) {
