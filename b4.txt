@@ -1,0 +1,44 @@
+3)
+  i)
+    x, y    - Koordinaten der Startzelle
+    width   - Anzahl der benutzen horizontalen Zellen
+    height  - Anzahl der benutzen vertikalen Zellen
+    weightx - Priorität bei horizontaller Ausdehnung
+    weighty - Priorität bei vertikaler Ausdehnung
+    
+    
+  ii)
+     +----------------------------+
+     |   | x | y | width | height | 
+     +----------------------------+
+     | A | 0 | 0 |     2 |      1 |
+     | B | 2 | 0 |     3 |      1 |
+     | C | 0 | 1 |     3 |      2 |
+     | D | 3 | 1 |     2 |      1 |
+     | E | 3 | 2 |     2 |      2 |
+     | F | 0 | 3 |     3 |      1 |
+     +----------------------------+
+  
+  iii) new JPanel().setBorder(BorderFactory.createdTitledBorder("Titel"))
+  iv) ListSelectionEvent
+  v) 
+     // constructor level
+     jcb1.addActionListener(new ActionListener() {
+       @Override public void actionPerformed(ActionEvent ev) { syncBoxWithBox(jcb2, jcb1); }
+     });
+     
+     jcb.addActionListener(new ActionListener(ActionEvent ev) {
+        @Override public void actionPerformed(ActionEvent ev) { syncBoxWithBox(jcb1, jcb2); }
+     });
+     
+     // class level
+     private boolean syncing = false;
+     private void syncBoxWithBox(JComboBox dst, JComboBox src) {
+       if (!syncing) {
+         syncing = true;
+         dst.setSelectedItem(src.getSelectedItem());
+         syncing = false;
+       }
+     }
+   
+   vi) JOptionPane.showMessageDialog(this, "Text", "Titel", JOptionPane.ERROR_MESSAGE);

@@ -93,6 +93,6 @@ public class SerializeingRoundtripMain {
 		if (o instanceof HashSet<?>) {
 			return (HashSet<Person>) o;
 		}
-		return null;
+		return new HashSet<Person>();
 	}
 }
