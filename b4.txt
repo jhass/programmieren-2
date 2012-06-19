@@ -34,10 +34,11 @@
      // class level
      private boolean syncing = false;
      private void syncBoxWithBox(JComboBox dst, JComboBox src) {
-       if (!syncing) {
+       if (syncing) {
+         syncing = false;
+       } else {
          syncing = true;
          dst.setSelectedItem(src.getSelectedItem());
-         syncing = false;
        }
      }
    
